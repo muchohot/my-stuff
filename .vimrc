@@ -26,10 +26,11 @@ endif
 
 "For everything else, use a tab width of 4 space chars.
 set tabstop=4
-set shiftwidth=4	"Indents will have a width of 4
-set softtabstop=4	"Sets the number of columns for a TAB
-set expandtab		"Expand TABs to spaces
+set shiftwidth=4	"indents will have a width of 4
+set softtabstop=4	"sets the number of columns for a tab
+set expandtab		"expand tabs to spaces
 
+set background=light
 set wildmode=longest:full,full
 syntax on
 set dictionary+=/usr/share/dict/words
