@@ -5,13 +5,15 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'scrooloose/nerdtree'
+" Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
 
-let vim_markdown_preview_pandoc=1
+" let vim_markdown_preview_pandoc = 1
+" let vim_markdown_preview_toggle = 1
 
 "Support for makefiles
 
@@ -30,18 +32,34 @@ set shiftwidth=4	"indents will have a width of 4
 set softtabstop=4	"sets the number of columns for a tab
 set expandtab		"expand tabs to spaces
 
-set background=light
+set background=dark
+
 set wildmode=longest:full,full
+
 syntax on
+
 set dictionary+=/usr/share/dict/words
 set complete+=k
+
 set number
 set nowrap
-highlight LineNr ctermfg=darkblue
+highlight LineNr ctermfg=grey
 set spelllang=en_us
 set laststatus=2
 set statusline=%f "tail of filename
 set linebreak 
+
+"Finding files
+"tab completion for files
+"search subfolders (stay in root of projects you are editing in vim)
+set path+=** 
+"show all matching files when we tab complete
+"use this by typing :find <filename> in the command line
+set wildmenu 
+
+"Tag jumping (hover over word and find it in your files
+command! MakeTags !ctags -R .
+"use the above by ^] to jump g^] to find partial matches and ^t to go back
 
 "WORD PROCESSING
 func! WordProcessor()
