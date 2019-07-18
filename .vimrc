@@ -29,7 +29,7 @@ set shiftwidth=4	            "indents will have a width of 4
 set softtabstop=0 noexpandtab	"sets the number of columns for a tab
 set expandtab		            "expand tabs to spaces
 
-set background=light
+set background=dark
 
 "Spell check colors
 hi clear SpellBad
