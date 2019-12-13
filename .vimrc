@@ -9,6 +9,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'mattn/emmet-vim'
 " Plugin 'godlygeetk/tabular'
 " Plugin 'plasticboy/vim-markdown'
 " Plugin 'lervag/vimtex'
@@ -26,10 +27,25 @@ map <C-n> :NERDTreeToggle<CR>
 "For everything else, use a tab width of 4 space chars.
 set tabstop=4
 set shiftwidth=4	            "indents will have a width of 4
-set softtabstop=0 noexpandtab	"sets the number of columns for a tab
+set softtabstop=4               "sets the number of columns for a tab
 set expandtab		            "expand tabs to spaces
+set autoindent
+set smartindent
+set copyindent
+set cindent
 
-set background=dark
+"below sets line across screen
+"set cursorline
+
+set number
+set rnu
+"set mouse=a for only normal mode
+set mouse=r
+
+set background=light
+
+"doesn't make you save buffer before switching
+set hidden
 
 "Spell check colors
 hi clear SpellBad
@@ -45,18 +61,18 @@ hi clear SpellRare
 hi SpellRare cterm=underline ctermfg=red
 
 set wildmode=longest:full,full
-
+" I don't know if the below is necessary (ignores files when using find)
+set wildignore+=/node_modules/**
 syntax on
 
 set dictionary+=/usr/share/dict/words
 set complete+=k
 
-set number
 set nowrap
 highlight LineNr ctermfg=grey
 set t_Co=256
 set spelllang=en
-set laststatus=2
+set laststatus=0
 set statusline=%f "tail of filename
 set linebreak 
 
@@ -94,6 +110,15 @@ endfu
 com! WP call WordProcessor()
 
 " set formatoptions+=a
+
+"auto toggles relativeline number 
+"set relativenumber
+
+"augroup numbertoggle
+"    autocmd!
+"    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+"augroup END
 
 "MAPPINGS
 map <C-L> 20zl " Scroll 20 characters to the right
