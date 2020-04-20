@@ -2,32 +2,32 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-"Line 6 is for powerline
-"set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-
+""Line 6 is for powerline
+""set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+"
 call vundle#begin()
-
+"
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 Plugin 'mattn/emmet-vim'
-" Plugin 'godlygeetk/tabular'
-" Plugin 'plasticboy/vim-markdown'
-" Plugin 'lervag/vimtex'
-" Plugin 'JamshedVesuna/vim-markdown-preview'
-
-" All of your Plugins must be added before the following line
+"" Plugin 'godlygeetk/tabular'
+"" Plugin 'plasticboy/vim-markdown'
+"" Plugin 'lervag/vimtex'
+"" Plugin 'JamshedVesuna/vim-markdown-preview'
+"
+"" All of your Plugins must be added before the following line
 call vundle#end()
-" NerdTree toggle ctrl n
-map <C-n> :NERDTreeToggle<CR>
-" filetype plugin indent on
-
-" let vim_markdown_preview_pandoc = 1
-" let vim_markdown_preview_toggle = 1
+"" NerdTree toggle ctrl n
+"map <C-n> :NERDTreeToggle<CR>
+filetype plugin indent on
+"
+"" let vim_markdown_preview_pandoc = 1
+"" let vim_markdown_preview_toggle = 1
 
 "For everything else, use a tab width of 4 space chars.
-set tabstop=4
-set shiftwidth=4	            "indents will have a width of 4
-set softtabstop=4               "sets the number of columns for a tab
+set tabstop=2
+set shiftwidth=2	            "indents will have a width of 4
+set softtabstop=2               "sets the number of columns for a tab
 set expandtab		            "expand tabs to spaces
 set autoindent
 set smartindent
@@ -39,10 +39,8 @@ set cindent
 
 set number
 set rnu
-"set mouse=a for only normal mode
-set mouse=r
 
-set background=light
+set background=dark
 
 "doesn't make you save buffer before switching
 set hidden
@@ -72,15 +70,10 @@ set nowrap
 highlight LineNr ctermfg=grey
 set t_Co=256
 set spelllang=en
-set laststatus=0
-set statusline=%f "tail of filename
+set laststatus=2
+"set statusline+=%F "tail of filename
+set statusline=%{expand('%:p:h:t')}/%t
 set linebreak 
-
-"Highlighting and Searching
-"set hlsearch
-"set incsearch
-"nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
-
 
 "Finding files
 "tab completion for files
@@ -129,3 +122,49 @@ map <C-H> 20zh " Scroll 20 characters to the left
 
 "COMPILE LATEX FILE
 nnoremap ,<space> :w<CR>:!pdflatex %<CR> " to compile the curent latex file you are working on
+
+" disable bell for WSL
+" set visualbell
+set belloff=all
+set clipboard=unnamedplus
+
+" mouse support
+set mouse=a
+
+"NERDTree shortcut
+map <C-n> :NERDTreeToggle<CR>
+
+"bracket highlight colors
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+
+"-- FOLDING --
+set foldmethod=syntax "syntax highlighting items specify folds
+set foldcolumn=1 "defines 1 col at window left, to indicate folding
+let javaScript_fold=1 "activate folding by JS syntax
+set foldlevelstart=99 "start file with all folds opened
+
+set omnifunc=syntaxcomplete#Complete
+
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
+
+"highlighting (to turn off temporarily just typre :noh in command mode
+set hlsearch
+
+"incremental search as typing vim
+set incsearch
+
+"ignore case when searching
+set ignorecase
+
+"press enterin normal mode to stop highlighting
+:nnoremap <CR> :nohlsearch<CR><CR>
+
+"for tag jumping in html
+runtime macros/matchit.vim
+
+"toggle cursorline when entering insert mode
+autocmd InsertEnter,InsertLeave * set cul!
