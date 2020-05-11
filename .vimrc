@@ -20,7 +20,7 @@ call vundle#end()
 "" NerdTree toggle ctrl n
 "map <C-n> :NERDTreeToggle<CR>
 filetype plugin indent on
-"
+
 "" let vim_markdown_preview_pandoc = 1
 "" let vim_markdown_preview_toggle = 1
 
@@ -168,3 +168,6 @@ runtime macros/matchit.vim
 
 "toggle cursorline when entering insert mode
 autocmd InsertEnter,InsertLeave * set cul!
+
+"when a file changes outside of vim reload the buffer
+set autoread
