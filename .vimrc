@@ -172,7 +172,6 @@ autocmd InsertEnter,InsertLeave * set cul!
 
 "when a file changes outside of vim reload the buffer
 set autoread
-
 set ttymouse=xterm2
 
 map <ScrollWheelUp> <C-Y>
