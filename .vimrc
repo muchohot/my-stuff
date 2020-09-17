@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'mattn/emmet-vim'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'dense-analysis/ale'
 "" Plugin 'godlygeetk/tabular'
 "" Plugin 'plasticboy/vim-markdown'
 "" Plugin 'lervag/vimtex'
@@ -24,6 +25,7 @@ filetype plugin indent on
 
 "" let vim_markdown_preview_pandoc = 1
 "" let vim_markdown_preview_toggle = 1
+colorscheme dim
 
 "For everything else, use a tab width of 4 space chars.
 set tabstop=2
@@ -46,19 +48,6 @@ set background=dark
 "doesn't make you save buffer before switching
 set hidden
 
-"Spell check colors
-hi clear SpellBad
-hi SpellBad cterm=underline ctermfg=red
-
-hi clear SpellLocal
-hi SpellLocal cterm=underline ctermfg=red
-
-hi clear SpellCap
-hi SpellCap cterm=underline ctermfg=red
-
-hi clear SpellRare
-hi SpellRare cterm=underline ctermfg=red
-
 set wildmode=longest:full,full
 " I don't know if the below is necessary (ignores files when using find)
 set wildignore+=/node_modules/**
@@ -68,13 +57,14 @@ set dictionary+=/usr/share/dict/words
 set complete+=k
 
 set nowrap
-highlight LineNr ctermfg=grey
 set t_Co=256
 set spelllang=en
 set laststatus=2
 "set statusline+=%F "tail of filename
 set statusline=%{expand('%:p:h:t')}/%t
 set linebreak 
+hi StatusLine ctermbg=black ctermfg=white
+
 
 "Finding files
 "tab completion for files
@@ -135,12 +125,9 @@ set mouse=a
 "NERDTree shortcut
 map <C-n> :NERDTreeToggle<CR>
 
-"bracket highlight colors
-hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
-
 "-- FOLDING --
 set foldmethod=syntax "syntax highlighting items specify folds
-set foldcolumn=1 "defines 1 col at window left, to indicate folding
+" set foldcolumn=1 "defines 1 col at window left, to indicate folding
 let javaScript_fold=1 "activate folding by JS syntax
 set foldlevelstart=99 "start file with all folds opened
 
