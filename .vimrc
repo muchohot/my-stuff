@@ -11,7 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'mattn/emmet-vim'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'dense-analysis/ale'
+"" Plugin 'dense-analysis/ale'
 "" Plugin 'godlygeetk/tabular'
 "" Plugin 'plasticboy/vim-markdown'
 "" Plugin 'lervag/vimtex'
@@ -27,6 +27,8 @@ filetype plugin indent on
 "" let vim_markdown_preview_toggle = 1
 colorscheme dim
 
+"timeouts for quickly swithing between modes
+set timeoutlen=1000 ttimeoutlen=0
 "For everything else, use a tab width of 4 space chars.
 set tabstop=2
 set shiftwidth=2	            "indents will have a width of 4
@@ -36,6 +38,7 @@ set autoindent
 set smartindent
 set copyindent
 set cindent
+
 
 "below sets line across screen
 "set cursorline
@@ -63,7 +66,7 @@ set laststatus=2
 "set statusline+=%F "tail of filename
 set statusline=%{expand('%:p:h:t')}/%t
 set linebreak 
-hi StatusLine ctermbg=black ctermfg=white
+" hi StatusLine ctermbg=black ctermfg=white
 
 
 "Finding files
@@ -75,7 +78,7 @@ set path+=**
 set wildmenu 
 
 "Tag jumping (hover over word and find it in your files
-command! MakeTags !ctags -R .
+"command! MakeTags !ctags -R .
 "use the above by ^] to jump g^] to find partial matches and ^t to go back
 
 "WORD PROCESSING
