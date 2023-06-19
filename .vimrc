@@ -38,3 +38,9 @@ set hlsearch
 
 "Set wrap off
 set nowrap
+
+"Universal tabs are always 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
