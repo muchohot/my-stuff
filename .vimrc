@@ -45,5 +45,6 @@ set shiftwidth=4
 set expandtab
 set softtabstop=4
 
-"Set autoindent
+"Set autoindent and smartindent for coding
 set autoindent
+set smartindent
