@@ -1,4 +1,5 @@
-"PLUGINS
+"TEST PUSH MESSAGE IN VIMRC
+""PLUGINS
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
